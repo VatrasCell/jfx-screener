@@ -1,19 +1,20 @@
-package sample;
+package controller;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import static util.ScreenUtil.getURL;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.show();
+        ScreenController.setRootScene(primaryStage);
+
+        ScreenController.addScreen("test", FXMLLoader.load(getURL("sample.fxml")));
+
+        ScreenController.activate("test");
     }
 
 
